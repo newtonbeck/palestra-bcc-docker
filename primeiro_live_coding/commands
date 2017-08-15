@@ -1,0 +1,7 @@
+docker run -it ubuntu
+
+docker build -t hello_docker .
+
+docker run -d -p 80:4567 --name hello hello_docker
+
+docker exec -it hello /bin/bash
