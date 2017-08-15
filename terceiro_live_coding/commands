@@ -1,6 +1,14 @@
 SPRING_PROFILES_ACTIVE=development mvn spring-boot:run
 
-docker build -t mensagens .
+docker build -t palestra-bcc .
 
 docker run -d -p 80:8080 -e SPRING_PROFILES_ACTIVE=development --name mensagens mensagens
+
+docker tag palestra-bcc newtonbeck/palestra-bcc
+
+docker push newtonbeck/palestra-bcc
+
+ssh -i ~/dev/keys/palestra.pem ubuntu@ec2-54-187-65-48.us-west-2.compute.amazonaws.com
+
+sudo docker run -d -p 80:8080 -e SPRING_PROFILES_ACTIVE=production newtonbeck/palestra-bcc
 
