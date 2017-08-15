@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+---
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://localhost:3306/palestra
+    username: root
+    password: toor
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+---
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:mysql://palestra.co4z7xbmpcew.us-west-2.rds.amazonaws.com:3306/palestra
+    username: root
+    password: toortoor
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true

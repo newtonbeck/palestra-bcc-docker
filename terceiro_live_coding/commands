@@ -1,0 +1,3 @@
+SPRING_PROFILES_ACTIVE=development mvn spring-boot:run
+
+
