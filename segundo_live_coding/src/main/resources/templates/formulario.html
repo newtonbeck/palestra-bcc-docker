@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Mensagens</h1>
+
+    <form method="post">
+        <label>
+            Autor:
+            <input type="text" name="autor" />
+        </label> <br />
+
+        <label>
+            Título:
+            <input type="text" name="titulo" />
+        </label> <br />
+
+        <label>
+            Conteúdo:
+            <textarea name="conteudo"></textarea>
+        </label> <br />
+        <button>Enviar</button>
+    </form>
+
+    <hr />
+
+    <h2 th:if="${mensagens.empty}">Ninguém deixou mensagem ainda :(</h2>
+
+    <article th:each="mensagem : ${mensagens}">
+        <h3 th:text="${mensagem.titulo}">Deutsch sprechen</h3>
+        <p th:text="${mensagem.conteudo}">Hallo Leute! Guten Abend!</p>
+        <p th:text="${mensagem.autor}">Autor: Johan Müller</p>
+    </article>
+</body>
+</html>
