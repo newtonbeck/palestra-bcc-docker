@@ -1,0 +1,3 @@
+docker run -d -e MYSQL_ROOT_PASSWORD=toor -p 3306:3306 --name mysqlserver mysql
+
+
